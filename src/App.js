@@ -1,8 +1,18 @@
-import logo from "./logo.svg";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login } from "./components/Login";
 import "./App.css";
 
 function App() {
-  return <div className="bg-black text-white text-3xl">Hejsan</div>;
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
