@@ -8,11 +8,11 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  const createUserProfile = (user) => {
+  const createUserProfile = async (user) => {
     const userInfo = {
-      _id: user.uid,
-      image: user.photoURL,
-      userName: user.displayName,
+      id: user?.uid,
+      image: user?.photoURL,
+      userName: user?.displayName,
       _type: "user",
     };
     client.createIfNotExists(userInfo).then(() => {
@@ -27,7 +27,11 @@ export const Login = () => {
   }, [user]);
   return (
     <>
-      <button onClick={() => signInWithGoogle()}>Sign in with google</button>
+      {user ? (
+        <h1>Användaren är inloggad</h1>
+      ) : (
+        <button onClick={() => signInWithGoogle()}>Sign in with google</button>
+      )}
     </>
   );
 };
