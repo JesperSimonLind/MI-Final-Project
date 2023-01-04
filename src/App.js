@@ -4,6 +4,7 @@ import { Login } from "./components/Login";
 import { Profile } from "./components/Profile";
 import "./App.css";
 import { UploadImage } from "./components/UploadImage";
+import { HomePage } from "./components/HomePage";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/home/*" element={<HomePage />}></Route>
+          <Route path="/profile/" element={<Profile />}></Route>
           <Route path="/upload" element={<UploadImage />}></Route>
         </Routes>
       </BrowserRouter>
