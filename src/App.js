@@ -13,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/home/*" element={<HomePage />}></Route>
-          <Route path="/profile/" element={<Profile />}></Route>
+          <Route path="/profile/:userId" element={<Profile />}></Route>
           <Route path="/upload" element={<UploadImage />}></Route>
         </Routes>
       </BrowserRouter>
