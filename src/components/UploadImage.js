@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { client } from "../client";
+import { userQuery } from "../data/data";
+import { useParams } from "react-router-dom";
 
-export const UploadImage = (user) => {
+export const UploadImage = () => {
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [imageAsset, setImageAsset] = useState(null);
+  const [user, setUser] = useState();
+  const { userId } = useParams();
+
+  useEffect(() => {
+    const query = userQuery(userId);
+    client.fetch(query).then((data) => {
+      setUser(data[0]);
+    });
+  }, [userId]);
 
   const navigate = useNavigate();
 
@@ -37,7 +48,7 @@ export const UploadImage = (user) => {
       userId: user._id,
     };
     client.create(imagePost).then(() => {
-      navigate("/profile");
+      navigate("/home");
     });
   };
   return (
