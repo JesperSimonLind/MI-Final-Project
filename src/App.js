@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Login />}></Route>
           <Route path="/home/*" element={<HomePage />}></Route>
           <Route path="/profile/:userId" element={<Profile />}></Route>
-          <Route path="/upload" element={<UploadImage />}></Route>
+          <Route path="/upload/:userId" element={<UploadImage />}></Route>
         </Routes>
       </BrowserRouter>
     </>
