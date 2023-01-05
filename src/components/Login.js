@@ -21,13 +21,11 @@ export const Login = () => {
     client.createIfNotExists(userInfo).then(() => {
       navigate("/home", { replace: true });
     });
-    // console.log(userInfo);
   };
 
   useEffect(() => {
     if (userInformation) {
       createUserProfile(userInformation.user);
-      console.log(userInformation.user);
     }
   }, [userInformation]);
   return (
@@ -63,7 +61,6 @@ export const Login = () => {
           </div>
         </div>
       </div>
-      {/* <button onClick={() => signInWithGoogle()}>Sign in with google</button> */}
     </>
   );
 };
