@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { userQuery } from "../data/data";
 import { auth } from "../firebase-config";
 
-export const Profile = ({}) => {
+export const Profile = () => {
   const [userCred] = useAuthState(auth);
   const [user, setUser] = useState();
   const { userId } = useParams();
@@ -16,11 +16,12 @@ export const Profile = ({}) => {
       setUser(data[0]);
     });
   }, [userId]);
+  if (!user) return <p>Fetching...</p>;
   return (
     <>
       <h1>Det här är min profil</h1>
-      {/* <h2>{user.userName}</h2>
-      <img src={user.image} /> */}
+      <h2>{user.userName}</h2>
+      <img src={user.image} />
 
       <Link to="/upload">Klick här för att ladda upp en bild</Link>
     </>
