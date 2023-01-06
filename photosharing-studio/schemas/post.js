@@ -26,5 +26,10 @@ export default {
       title: 'UserId',
       type: 'string',
     },
+    {
+      name: 'createdBy',
+      title: 'CreatedBy',
+      type: 'createdBy',
+    },
   ],
 }
