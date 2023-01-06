@@ -35,7 +35,7 @@ export const UploadImage = () => {
 
   const saveImage = () => {
     const imagePost = {
-      _type: "post",
+      _type: "userPost",
       title,
       about,
       image: {
