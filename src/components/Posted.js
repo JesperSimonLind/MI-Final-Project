@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { urlFor } from "../client";
 import { auth } from "../firebase-config";
 
-export const Posted = ({ userPost: { createdBy, image } }) => {
+export const Posted = ({ userPost: { createdBy, image, _id } }) => {
+  const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
   return (
