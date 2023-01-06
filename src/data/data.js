@@ -4,13 +4,18 @@ export const userQuery = (userId) => {
 };
 
 export const userUploadedImagesQuery = (userId) => {
-  const query = `*[ _type == 'image' && userId == '${userId}'] | order(_createdAt desc){
+  const query = `*[ _type == 'userPost' && userId == '${userId}'] | order(_createdAt desc){
     image{
       asset->{
         url
       }
     },
     _id,
+    createdBy->{
+      _id,
+      userName,
+      image
+    }
   }`;
   return query;
 };
