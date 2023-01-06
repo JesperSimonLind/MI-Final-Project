@@ -46,6 +46,10 @@ export const UploadImage = () => {
         },
       },
       userId: user._id,
+      createdBy: {
+        _type: "createdBy",
+        _ref: user._id,
+      },
     };
     client.create(imagePost).then(() => {
       navigate("/home");
