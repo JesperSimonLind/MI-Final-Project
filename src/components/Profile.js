@@ -26,7 +26,8 @@ export const Profile = () => {
       setCreatedImages(data);
     });
   }, [userId]);
-  if (!user && !createdImages) return <p>Fetching...</p>;
+  if (!user) return <p>Fetching Profile...</p>;
+  if (!createdImages) return <p>Fetching Images...</p>;
   return (
     <>
       <h1>Det här är min profil</h1>
