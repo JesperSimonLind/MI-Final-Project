@@ -19,3 +19,17 @@ export const userUploadedImagesQuery = (userId) => {
   }`;
   return query;
 };
+
+export const homeQuery = `*[_type == "userPost"] | order(_createdAt desc) {
+  image{
+    asset->{
+      url
+    }
+  },
+      _id,
+      createdBy->{
+        _id,
+        userName,
+        image
+      },
+    } `;
