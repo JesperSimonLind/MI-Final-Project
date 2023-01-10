@@ -30,12 +30,26 @@ export const Profile = () => {
   if (!createdImages) return <p>Fetching Images...</p>;
   return (
     <>
-      <h1>Det här är min profil</h1>
+      {/* <h1>Det här är min profil</h1>
       <h2>{user.userName}</h2>
       <img src={user.image} />
-      <Link to="/upload">Klick här för att ladda upp en bild</Link>
       <PostLayout createdImages={createdImages}></PostLayout>
-      <div></div>
+      <div></div> */}
+      <div className="flex justify-start items-center flex-col h-screen bg-lgblack">
+        <div className=" w-full h-full">
+          <div className="flex flex-col justify-center items-center">
+            <img
+              className="rounded-full"
+              src={user.image}
+              alt="profile-picture"
+            ></img>
+            <h1 className="text-4xl mt-2 text-white">{user.userName}</h1>
+          </div>
+          <div className="grid grid-cols-3 gap-10">
+            <PostLayout createdImages={createdImages}></PostLayout>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
