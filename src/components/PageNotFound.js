@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const PageNotFound = () => {
   return (
@@ -18,12 +19,14 @@ export const PageNotFound = () => {
               <p className="text-white pb-6">
                 The Page you are looking for does not seem to exist
               </p>
-              <button
-                type="button"
-                className="bg-btnBlue hover:bg-btnBlueHover py-2 px-4 rounded text-lg text-white"
-              >
-                Go to Home
-              </button>
+              <Link to="/home">
+                <button
+                  type="button"
+                  className="bg-btnBlue hover:bg-btnBlueHover py-2 px-4 rounded text-lg text-white"
+                >
+                  Go to Home
+                </button>
+              </Link>
             </div>
           </div>
         </div>
