@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         lgblack: "#0F1424",
+        btnBlue: "#0047FF",
+        btnBlueHover: "#0039CD",
       },
     },
   },
