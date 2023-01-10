@@ -21,7 +21,7 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
           <h2>{createdBy.userName}</h2>
         </div>
         <img
-          className="object-scale-down"
+          className="object-contain"
           src={urlFor(image).url()}
           alt="user-uploaded-image"
         ></img>
