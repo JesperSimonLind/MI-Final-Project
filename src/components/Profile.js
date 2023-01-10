@@ -45,7 +45,7 @@ export const Profile = () => {
             ></img>
             <h1 className="text-4xl mt-2 text-white">{user.userName}</h1>
           </div>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ml-7 mr-7 ">
             <PostLayout createdImages={createdImages}></PostLayout>
           </div>
         </div>
