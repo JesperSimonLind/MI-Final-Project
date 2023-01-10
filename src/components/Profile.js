@@ -35,7 +35,7 @@ export const Profile = () => {
       <img src={user.image} />
       <PostLayout createdImages={createdImages}></PostLayout>
       <div></div> */}
-      <div className="flex justify-start items-center flex-col h-screen bg-lgblack">
+      <div className="flex justify-start items-center flex-col h-screen bg-lgblack overflow-auto">
         <div className=" w-full h-full">
           <div className="flex flex-col justify-center items-center">
             <img
@@ -45,7 +45,7 @@ export const Profile = () => {
             ></img>
             <h1 className="text-4xl mt-2 text-white">{user.userName}</h1>
           </div>
-          <div className="grid grid-cols-3 gap-10">
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
             <PostLayout createdImages={createdImages}></PostLayout>
           </div>
         </div>
