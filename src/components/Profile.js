@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { userQuery, userUploadedImagesQuery } from "../data/data";
 import { auth } from "../firebase-config";
 import { PostLayout } from "./PostLayout";
+import { Loader } from "./Loader";
 
 export const Profile = () => {
   const [userCred] = useAuthState(auth);
@@ -26,8 +27,8 @@ export const Profile = () => {
       setCreatedImages(data);
     });
   }, [userId]);
-  if (!user) return <p>Fetching Profile...</p>;
-  if (!createdImages) return <p>Fetching Images...</p>;
+  if (!user) return <Loader />;
+  if (!createdImages) return <Loader />;
   return (
     <>
       {/* <h1>Det här är min profil</h1>
