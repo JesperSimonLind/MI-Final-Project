@@ -5,6 +5,7 @@ import { client } from "../client";
 import { auth } from "../firebase-config";
 import { homeQuery, userQuery } from "../data/data";
 import { PostLayout } from "./PostLayout";
+import { Loader } from "./Loader";
 
 export const HomePage = () => {
   const [user] = useAuthState(auth);
@@ -23,7 +24,7 @@ export const HomePage = () => {
       setPostFeed(data);
     });
   }, []);
-  if (!postFeed) return <p>Fetching Feed...</p>;
+  if (!postFeed) return <Loader />;
   return (
     <>
       <Link to={`/profile/${userdb?._id}`}>
