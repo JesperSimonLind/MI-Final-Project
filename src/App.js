@@ -16,7 +16,7 @@ function App() {
           <Route path="/home/*" element={<HomePage />}></Route>
           <Route path="/profile/:userId" element={<Profile />}></Route>
           <Route path="/upload/:userId" element={<UploadImage />}></Route>
-          <Route path="/error" element={<PageNotFound />}></Route>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </>
