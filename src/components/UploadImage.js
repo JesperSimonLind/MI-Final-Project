@@ -10,6 +10,7 @@ export const UploadImage = () => {
   const [imageAsset, setImageAsset] = useState(null);
   const [user, setUser] = useState();
   const { userId } = useParams();
+  const [emptyFields, setEmptyFields] = useState(false);
 
   useEffect(() => {
     const query = userQuery(userId);
@@ -34,26 +35,30 @@ export const UploadImage = () => {
   };
 
   const saveImage = () => {
-    const imagePost = {
-      _type: "userPost",
-      title,
-      about,
-      image: {
-        _type: "image",
-        asset: {
-          _type: "reference",
-          _ref: imageAsset?._id,
+    if (title && about && imageAsset?._id) {
+      const imagePost = {
+        _type: "userPost",
+        title,
+        about,
+        image: {
+          _type: "image",
+          asset: {
+            _type: "reference",
+            _ref: imageAsset?._id,
+          },
         },
-      },
-      userId: user._id,
-      createdBy: {
-        _type: "createdBy",
-        _ref: user._id,
-      },
-    };
-    client.create(imagePost).then(() => {
-      navigate("/home");
-    });
+        userId: user._id,
+        createdBy: {
+          _type: "createdBy",
+          _ref: user._id,
+        },
+      };
+      client.create(imagePost).then(() => {
+        navigate("/home");
+      });
+    } else {
+      setEmptyFields(true);
+    }
   };
   return (
     <>
@@ -63,7 +68,16 @@ export const UploadImage = () => {
             <div className="flex justify-center flex-col items-center">
               <div className="flex flex-col gap-3">
                 <h1 className="text-white text-3xl text-center">Upload</h1>
-                <label class="block text-sm font-medium text-white" for="title">
+                {emptyFields && (
+                  <p className="text-red-400 text-center">
+                    Some fields are empty or incorrect <br /> Please fill in all
+                    fields.
+                  </p>
+                )}
+                <label
+                  className="block text-sm font-medium text-white"
+                  htmlFor="title"
+                >
                   Title
                 </label>
                 <input
@@ -89,8 +103,8 @@ export const UploadImage = () => {
                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 ></input>
                 <label
-                  class="block  text-sm font-medium text-white"
-                  for="about"
+                  className="block  text-sm font-medium text-white"
+                  htmlFor="about"
                 >
                   About
                 </label>
@@ -118,8 +132,8 @@ export const UploadImage = () => {
                 ></input>
 
                 <label
-                  class="block  text-sm font-medium text-white"
-                  for="file_input"
+                  className="block  text-sm font-medium text-white"
+                  htmlFor="file_input"
                 >
                   Upload file
                 </label>
@@ -143,13 +157,6 @@ export const UploadImage = () => {
                   id="file_input"
                   type="file"
                 ></input>
-                <p
-                  className="mt-1 text-sm text-gray-500 dark:text-gray-300"
-                  id="file_input_help"
-                >
-                  SVG, PNG, JPG or GIF (MAX. 800x400px).
-                </p>
-
                 <button
                   type="button"
                   className="bg-btnBlue hover:bg-btnBlueHover py-2 px-4 rounded text-lg text-white"
