@@ -78,9 +78,9 @@ export const Menu = () => {
               </Link>
             </li>
             <li className="border-b border-inherit">
-              <Link to="/" className="block p-4">
+              <button onClick={logoutUser} className="block p-4">
                 Logout
-              </Link>
+              </button>
             </li>
           </ul>
           <button
