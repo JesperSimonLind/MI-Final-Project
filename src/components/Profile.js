@@ -6,6 +6,7 @@ import { userQuery, userUploadedImagesQuery } from "../data/data";
 import { auth } from "../firebase-config";
 import { PostLayout } from "./PostLayout";
 import { Loader } from "./Loader";
+import { Menu } from "./Menu";
 
 export const Profile = () => {
   const [userCred] = useAuthState(auth);
@@ -31,6 +32,7 @@ export const Profile = () => {
   if (!createdImages) return <Loader />;
   return (
     <>
+      <Menu />
       {/* <h1>Det här är min profil</h1>
       <h2>{user.userName}</h2>
       <img src={user.image} />

@@ -6,6 +6,7 @@ import { auth } from "../firebase-config";
 import { homeQuery, userQuery } from "../data/data";
 import { PostLayout } from "./PostLayout";
 import { Loader } from "./Loader";
+import { Menu } from "./Menu";
 
 export const HomePage = () => {
   const [user] = useAuthState(auth);
@@ -27,6 +28,7 @@ export const HomePage = () => {
   if (!postFeed) return <Loader />;
   return (
     <>
+      <Menu />
       <Link to={`/profile/${userdb?._id}`}>
         Klicka här för att komma till din profil
       </Link>
