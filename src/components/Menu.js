@@ -1,9 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { userQuery } from "../data/data";
+import { client } from "../client";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase-config";
+import { signOut } from "firebase/auth";
 
-export const Menu = ({ user }) => {
+export const Menu = () => {
+  const [user] = useAuthState(auth);
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [userdb, setUserdb] = useState(null);
+  const navigate = useNavigate();
 
   const showMenu = () => {
     setToggleMenu(true);
@@ -12,6 +20,18 @@ export const Menu = ({ user }) => {
   const closeMenu = () => {
     setToggleMenu(false);
   };
+
+  const logoutUser = async () => {
+    await signOut(auth);
+    navigate(`/`);
+  };
+
+  useEffect(() => {
+    const query = userQuery(user?.uid);
+    client.fetch(query).then((data) => {
+      setUserdb(data[0]);
+    });
+  }, [user]);
   return (
     <>
       <header>
@@ -38,22 +58,22 @@ export const Menu = ({ user }) => {
         <nav className="fixed top-0 right-0 bottom-0 left-0 backdrop:-blur-sm z-10">
           <ul className="absolute top-0 right-0 bottom-0 w-6/12 lg:w-1/6  md:w-1/4  py-4 bg-white drop-shadow-2xl z-10">
             <li className="border-b border-inherit">
-              {/* <Link to={`user-profile/${user._id}`} className="block p-4">
-              <img
-                src={user.image}
-                className="w-10 h-10 rounded-full"
-                alt="user"
-              ></img>
-              <p>{user.userName}</p>
-            </Link> */}
+              <Link to={`/profile/${userdb?._id}`} className="block p-4">
+                <img
+                  src={userdb.image}
+                  className="w-10 h-10 rounded-full"
+                  alt="user"
+                ></img>
+                <p>{userdb.userName}</p>
+              </Link>
             </li>
             <li className="border-b border-inherit">
-              <Link to="/" className="block p-4">
+              <Link to="/home" className="block p-4">
                 Home
               </Link>
             </li>
             <li className="border-b border-inherit">
-              <Link to="/" className="block p-4">
+              <Link to={`/upload/${userdb?._id}`} className="block p-4">
                 Upload
               </Link>
             </li>
