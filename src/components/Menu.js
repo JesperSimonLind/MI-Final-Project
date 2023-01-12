@@ -60,7 +60,7 @@ export const Menu = () => {
             <li className="border-b border-inherit">
               <Link
                 to={`/profile/${userdb?._id}`}
-                className="p-4 flex items-center gap-2.5"
+                className="p-4 flex items-center gap-2.5 hover:bg-slate-300"
               >
                 <img
                   src={userdb.image}
@@ -70,17 +70,17 @@ export const Menu = () => {
                 <p>{userdb.userName}</p>
               </Link>
             </li>
-            <li className="border-b border-inherit">
+            <li className="border-b border-inherit hover:bg-slate-300">
               <Link to="/home" className="block p-4">
                 Home
               </Link>
             </li>
-            <li className="border-b border-inherit">
+            <li className="border-b border-inherit hover:bg-slate-300">
               <Link to={`/upload/${userdb?._id}`} className="block p-4">
                 Upload
               </Link>
             </li>
-            <li className="border-b border-inherit">
+            <li className="border-b border-inherit hover:bg-slate-300">
               <button onClick={logoutUser} className="block p-4">
                 Logout
               </button>
