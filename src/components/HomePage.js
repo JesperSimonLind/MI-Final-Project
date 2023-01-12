@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { client } from "../client";
 import { auth } from "../firebase-config";
@@ -29,14 +28,6 @@ export const HomePage = () => {
   return (
     <>
       <Menu />
-      <Link to={`/profile/${userdb?._id}`}>
-        Klicka här för att komma till din profil
-      </Link>
-      <br></br>
-      <Link to={`/upload/${userdb?._id}`}>
-        {" "}
-        Klicka här för att ladda upp en bild
-      </Link>
       <div>
         <PostLayout createdImages={postFeed}></PostLayout>
       </div>
