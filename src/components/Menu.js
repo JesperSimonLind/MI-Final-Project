@@ -58,7 +58,10 @@ export const Menu = () => {
         <nav className="fixed top-0 right-0 bottom-0 left-0 backdrop:-blur-sm z-10">
           <ul className="absolute top-0 right-0 bottom-0 w-6/12 lg:w-1/6  md:w-1/4  py-4 bg-white drop-shadow-2xl z-10">
             <li className="border-b border-inherit">
-              <Link to={`/profile/${userdb?._id}`} className="block p-4">
+              <Link
+                to={`/profile/${userdb?._id}`}
+                className="p-4 flex items-center gap-2.5"
+              >
                 <img
                   src={userdb.image}
                   className="w-10 h-10 rounded-full"
