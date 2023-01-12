@@ -32,10 +32,7 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
           >
             <FaEdit className="w-10 h-10" />
           </button>
-          <button
-            className="flex justify-center items-center w-12 h-12"
-            type="button"
-          >
+          <button className=" w-12 h-12" type="button">
             <FaTrashAlt className="w-10 h-10" />
           </button>
         </div>
