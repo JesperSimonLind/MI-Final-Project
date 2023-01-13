@@ -6,7 +6,6 @@ import "./App.css";
 import { UploadImage } from "./components/UploadImage";
 import { HomePage } from "./components/HomePage";
 import { PageNotFound } from "./components/PageNotFound";
-import { Menu } from "./components/Menu";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
           <Route path="/profile/:userId" element={<Profile />}></Route>
           <Route path="/upload/:userId" element={<UploadImage />}></Route>
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/menu" element={<Menu />}></Route>
         </Routes>
       </BrowserRouter>
     </>
