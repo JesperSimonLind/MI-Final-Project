@@ -33,11 +33,6 @@ export const Profile = () => {
   return (
     <>
       <Menu />
-      {/* <h1>Det här är min profil</h1>
-      <h2>{user.userName}</h2>
-      <img src={user.image} />
-      <PostLayout createdImages={createdImages}></PostLayout>
-      <div></div> */}
       <div className="flex justify-start items-center flex-col h-screen bg-lgblack overflow-auto">
         <div className=" w-full h-full">
           <div className="flex flex-col justify-center items-center">
@@ -48,7 +43,7 @@ export const Profile = () => {
             ></img>
             <h1 className="text-4xl mt-2 text-white">{user.userName}</h1>
           </div>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ml-7 mr-7 ">
+          <div className="grid justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ml-7 mr-7 items-center pt-20 pb-4">
             <PostLayout createdImages={createdImages}></PostLayout>
           </div>
         </div>
