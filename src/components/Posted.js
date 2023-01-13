@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-import { urlFor } from "../client";
+import { client, urlFor } from "../client";
 import { auth } from "../firebase-config";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 
 export const Posted = ({ userPost: { createdBy, image, _id } }) => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+
+  const deletePost = (id) => {
+    client.delete(id).then(() => {
+      window.location.reload();
+    });
+  };
 
   return (
     <>
@@ -32,7 +38,14 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
           >
             <FaEdit className="w-10 h-10" />
           </button>
-          <button className=" w-12 h-12" type="button">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              deletePost(_id);
+            }}
+            className=" w-12 h-12"
+            type="button"
+          >
             <FaTrashAlt className="w-10 h-10" />
           </button>
         </div>
