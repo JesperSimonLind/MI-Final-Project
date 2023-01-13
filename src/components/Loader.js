@@ -1,8 +1,9 @@
 import React from "react";
-
+import { Menu } from "./Menu";
 export const Loader = () => {
   return (
     <>
+      <Menu />
       <div className="flex justify-start items-center flex-col h-screen bg-lgblack">
         <div className="relative w-full h-full">
           <div className="absolute flex flex-col justify-center item-center top-0 right-0 left-0 bottom-0">
