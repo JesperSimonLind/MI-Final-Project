@@ -28,8 +28,12 @@ export const HomePage = () => {
   return (
     <>
       <Menu />
-      <div>
-        <PostLayout createdImages={postFeed}></PostLayout>
+      <div className="flex justify-start items-center flex-col h-screen bg-lgblack overflow-auto">
+        <div className="w-full h-full">
+          <div className="grid justify-items-center sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ml-7 mr-7 items-center pt-20 pb-4">
+            <PostLayout createdImages={postFeed}></PostLayout>
+          </div>
+        </div>
       </div>
     </>
   );
