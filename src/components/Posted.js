@@ -31,24 +31,26 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
           src={urlFor(image).url()}
           alt="user-uploaded-image"
         ></img>
-        <div className="flex justify-center pt-3">
-          <button
-            type="button"
-            className="flex justify-center items-center w-12 h-12"
-          >
-            <FaEdit className="w-10 h-10" />
-          </button>
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              deletePost(_id);
-            }}
-            className=" w-12 h-12"
-            type="button"
-          >
-            <FaTrashAlt className="w-10 h-10" />
-          </button>
-        </div>
+        {createdBy?._id === user?.uid && (
+          <div className="flex justify-center pt-3">
+            <button
+              type="button"
+              className="flex justify-center items-center w-12 h-12"
+            >
+              <FaEdit className="w-10 h-10" />
+            </button>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                deletePost(_id);
+              }}
+              className=" w-12 h-12"
+              type="button"
+            >
+              <FaTrashAlt className="w-10 h-10" />
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
