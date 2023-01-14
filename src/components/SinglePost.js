@@ -4,6 +4,7 @@ import { client, urlFor } from "../client";
 import { DetailedPostQuery } from "../data/data";
 import { Loader } from "./Loader";
 import { Menu } from "./Menu";
+import { Link } from "react-router-dom";
 
 export const SinglePost = ({ user }) => {
   const { userPostId } = useParams();
@@ -31,15 +32,17 @@ export const SinglePost = ({ user }) => {
           <div className="absolute flex flex-col justify-center top-0 right-0 left-0 bottom-0">
             <div className="flex justify-center flex-col items-center">
               <div className="rounded-xl shadow-lg bg-white w-5/6  lg:w-3/6">
-                <div className="flex items-center p-2 gap-3">
-                  <img
-                    className="rounded-full h-14 w-14"
-                    src={userPostDetail.createdBy.image}
-                  ></img>
-                  <h2 className="text-md">
-                    {userPostDetail.createdBy.userName}
-                  </h2>
-                </div>
+                <Link to={`/profile/${userPostDetail.createdBy?._id}`}>
+                  <div className="flex items-center p-2 gap-3">
+                    <img
+                      className="rounded-full h-14 w-14"
+                      src={userPostDetail.createdBy.image}
+                    ></img>
+                    <h2 className="text-md">
+                      {userPostDetail.createdBy.userName}
+                    </h2>
+                  </div>
+                </Link>
                 <img
                   className="pb-4 rounded-lg"
                   src={userPostDetail && urlFor(userPostDetail.image).url()}
