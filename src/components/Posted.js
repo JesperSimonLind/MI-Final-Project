@@ -28,7 +28,7 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
   return (
     <>
       <Toaster />
-      <div className="rounded xl shadow-lg bg-white w-5/6">
+      <div className="rounded-xl shadow-lg bg-white w-5/6">
         <div className="flex justify-start items-center p-2 gap-3">
           <img className="rounded-full h-14 w-14" src={createdBy.image}></img>
           <h2 className="text-md">{createdBy.userName}</h2>
