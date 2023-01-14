@@ -29,10 +29,12 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
     <>
       <Toaster />
       <div className="rounded-xl shadow-lg bg-white w-5/6">
-        <div className="flex justify-start items-center p-2 gap-3">
-          <img className="rounded-full h-14 w-14" src={createdBy.image}></img>
-          <h2 className="text-md">{createdBy.userName}</h2>
-        </div>
+        <Link to={`/profile/${createdBy?._id}`}>
+          <div className="flex justify-start items-center p-2 gap-3">
+            <img className="rounded-full h-14 w-14" src={createdBy.image}></img>
+            <h2 className="text-md">{createdBy.userName}</h2>
+          </div>
+        </Link>
         <div className="p-2 flex-col">
           <div className="rounded-xl overflow-hidden">
             <Link to={`/userpost-detail/${_id}`}>
