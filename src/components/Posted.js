@@ -5,6 +5,7 @@ import { client, urlFor } from "../client";
 import { auth } from "../firebase-config";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export const Posted = ({ userPost: { createdBy, image, _id } }) => {
   const [user] = useAuthState(auth);
@@ -34,11 +35,13 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
         </div>
         <div className="p-2 flex-col">
           <div className="rounded-xl overflow-hidden">
-            <img
-              className="object-contain"
-              src={urlFor(image).url()}
-              alt="user-uploaded-image"
-            ></img>
+            <Link to={`/userpost-detail/${_id}`}>
+              <img
+                className="object-contain"
+                src={urlFor(image).url()}
+                alt="user-uploaded-image"
+              ></img>
+            </Link>
           </div>
           {createdBy?._id === user?.uid && (
             <div className="flex justify-center gap-5">
