@@ -4,6 +4,7 @@ import { client } from "../client";
 import { userQuery } from "../data/data";
 import { useParams } from "react-router-dom";
 import { Menu } from "./Menu";
+import toast, { Toaster } from "react-hot-toast";
 
 export const UploadImage = () => {
   const [title, setTitle] = useState("");
@@ -54,8 +55,16 @@ export const UploadImage = () => {
           _ref: user._id,
         },
       };
+      toast.success(
+        "Image successfully posted. Please note that it may take some time before your image appears",
+        {
+          duration: 5000,
+        }
+      );
       client.create(imagePost).then(() => {
-        navigate("/home");
+        setTimeout(() => {
+          navigate("/home");
+        }, 5000);
       });
     } else {
       setEmptyFields(true);
@@ -64,6 +73,7 @@ export const UploadImage = () => {
   return (
     <>
       <Menu />
+      <Toaster />
       <div className="flex justify-start items-center flex-col h-screen bg-lgblack">
         <div className="relative w-full h-full">
           <div className="absolute flex flex-col justify-center item-center top-0 right-0 left-0 bottom-0">
