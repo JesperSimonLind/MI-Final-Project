@@ -6,6 +6,7 @@ import "./App.css";
 import { UploadImage } from "./components/UploadImage";
 import { HomePage } from "./components/HomePage";
 import { PageNotFound } from "./components/PageNotFound";
+import { SinglePost } from "./components/SinglePost";
 
 function App() {
   return (
@@ -17,6 +18,10 @@ function App() {
           <Route path="/profile/:userId" element={<Profile />}></Route>
           <Route path="/upload/:userId" element={<UploadImage />}></Route>
           <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="/userpost-detail/:userPostId"
+            element={<SinglePost />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </>
