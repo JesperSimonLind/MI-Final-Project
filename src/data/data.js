@@ -33,3 +33,22 @@ export const homeQuery = `*[_type == "userPost"] | order(_createdAt desc) {
         image
       },
     } `;
+
+export const DetailedPostQuery = (userPostId) => {
+  const query = `*[_type == "userPost" && _id == '${userPostId}']{
+        image{
+          asset->{
+            url
+          }
+        },
+        _id,
+        title, 
+        about,
+        createdBy->{
+          _id,
+          userName,
+          image
+        },
+      }`;
+  return query;
+};
