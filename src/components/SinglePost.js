@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { client, urlFor } from "../client";
 import { DetailedPostQuery } from "../data/data";
 import { Loader } from "./Loader";
+import { Menu } from "./Menu";
 
 export const SinglePost = ({ user }) => {
   const { userPostId } = useParams();
@@ -24,9 +25,12 @@ export const SinglePost = ({ user }) => {
   if (!userPostDetail) return <Loader />;
   return (
     <>
-      <h1>{userPostDetail.title}</h1>
+      {/* <h1>{userPostDetail.title}</h1>
       <h2>{userPostDetail.about}</h2>
       <img src={userPostDetail.image && urlFor(userPostDetail.image).url()} />
+      <img src={userPostDetail.createdBy.image} />
+      <h2>{userPostDetail.createdBy.userName}</h2> */}
+      <Menu />
     </>
   );
 };
