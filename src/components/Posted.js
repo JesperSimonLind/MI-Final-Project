@@ -47,10 +47,12 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
           </div>
           {createdBy?._id === user?.uid && (
             <div className="flex justify-center gap-5">
-              <button className="text-center bg-btnBlue text-white py-2 rounded-md mt-4 w-20">
-                <FaEdit className="w-5 h-5 inline-flex" />
-                Edit
-              </button>
+              <Link to={`/edit-post/${_id}`}>
+                <button className="text-center bg-btnBlue text-white py-2 rounded-md mt-4 w-20">
+                  <FaEdit className="w-5 h-5 inline-flex" />
+                  Edit
+                </button>
+              </Link>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
