@@ -81,7 +81,10 @@ export const UploadImage = () => {
               <div className="flex flex-col gap-3">
                 <h1 className="text-white text-3xl text-center">Upload</h1>
                 {emptyFields && (
-                  <p className="text-red-400 text-center">
+                  <p
+                    className="text-red-400 text-center"
+                    data-testid="errorText"
+                  >
                     Some fields are empty or incorrect <br /> Please fill in all
                     fields.
                   </p>
