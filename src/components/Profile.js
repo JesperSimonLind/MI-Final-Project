@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { client } from "../client";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { userQuery, userUploadedImagesQuery } from "../data/data";
@@ -9,7 +9,7 @@ import { Loader } from "./Loader";
 import { Menu } from "./Menu";
 
 export const Profile = () => {
-  const [userCred] = useAuthState(auth);
+  // const [userCred] = useAuthState(auth);
   const [user, setUser] = useState();
   const { userId } = useParams();
   const [createdImages, setCreatedImages] = useState();
@@ -39,7 +39,7 @@ export const Profile = () => {
             <img
               className="rounded-full"
               src={user.image}
-              alt="profile-picture"
+              alt="user-profile"
             ></img>
             <h1 className="text-4xl mt-2 text-white">{user.userName}</h1>
           </div>

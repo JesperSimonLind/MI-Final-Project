@@ -65,7 +65,7 @@ export const Menu = () => {
                 <img
                   src={userdb.image}
                   className="w-10 h-10 rounded-full"
-                  alt="user"
+                  alt="user-profile"
                 ></img>
                 <p>{userdb.userName}</p>
               </Link>

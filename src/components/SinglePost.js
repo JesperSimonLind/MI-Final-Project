@@ -37,6 +37,7 @@ export const SinglePost = ({ user }) => {
                     <img
                       className="rounded-full h-14 w-14"
                       src={userPostDetail.createdBy.image}
+                      alt="user-profile"
                     ></img>
                     <h2 className="text-md">
                       {userPostDetail.createdBy.userName}
@@ -46,7 +47,7 @@ export const SinglePost = ({ user }) => {
                 <img
                   className="pb-4 rounded-lg"
                   src={userPostDetail && urlFor(userPostDetail.image).url()}
-                  alt="User Posted Image"
+                  alt="User-post"
                 ></img>
                 <h1 className="text-3xl pl-2">{userPostDetail.title}</h1>
                 <h2 className="pl-2">{userPostDetail.about}</h2>

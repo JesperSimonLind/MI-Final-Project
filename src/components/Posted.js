@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { client, urlFor } from "../client";
@@ -31,7 +31,11 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
       <div className="rounded-xl shadow-lg bg-white w-5/6">
         <Link to={`/profile/${createdBy?._id}`}>
           <div className="flex justify-start items-center p-2 gap-3">
-            <img className="rounded-full h-14 w-14" src={createdBy.image}></img>
+            <img
+              className="rounded-full h-14 w-14"
+              alt="user-profile"
+              src={createdBy.image}
+            ></img>
             <h2 className="text-md">{createdBy.userName}</h2>
           </div>
         </Link>
@@ -41,7 +45,7 @@ export const Posted = ({ userPost: { createdBy, image, _id } }) => {
               <img
                 className="object-contain"
                 src={urlFor(image).url()}
-                alt="user-uploaded-image"
+                alt="user-uploaded"
               ></img>
             </Link>
           </div>
