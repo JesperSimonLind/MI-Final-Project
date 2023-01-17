@@ -40,7 +40,7 @@ export const Login = () => {
             autoPlay
             className="w-full h-full object-cover"
           />
-          <div className="absolute flex flex-col justify-center item-center top-0 right-0 left-0 bottom-0  bg-blackOverlay">
+          <div className="absolute flex flex-col justify-center item-center top-0 right-0 left-0 bottom-0  bg-blackOverlay pl-4 pr-4">
             <div className="flex justify-center">
               <img
                 src="https://i.pinimg.com/originals/ac/79/98/ac799833b8d540819d2435e037ae5b4f.png"
