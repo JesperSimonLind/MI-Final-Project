@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
 import { client, urlFor } from "../client";
 import { auth } from "../firebase-config";
 import { FaTrashAlt, FaEdit } from "react-icons/fa";
@@ -9,7 +8,6 @@ import { Link } from "react-router-dom";
 
 export const Posted = ({ userPost: { createdBy, image, _id } }) => {
   const [user] = useAuthState(auth);
-  const navigate = useNavigate();
 
   const deletePost = (id) => {
     toast.success(

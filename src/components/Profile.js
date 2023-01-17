@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { client } from "../client";
-import { useAuthState } from "react-firebase-hooks/auth";
 import { userQuery, userUploadedImagesQuery } from "../data/data";
-import { auth } from "../firebase-config";
 import { PostLayout } from "./PostLayout";
 import { Loader } from "./Loader";
 import { Menu } from "./Menu";
 
 export const Profile = () => {
-  // const [userCred] = useAuthState(auth);
   const [user, setUser] = useState();
   const { userId } = useParams();
   const [createdImages, setCreatedImages] = useState();

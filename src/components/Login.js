@@ -8,8 +8,7 @@ import LoginBackground from "../Assets/LoginBackground.mp4";
 export const Login = () => {
   const navigate = useNavigate();
 
-  const [signInWithGoogle, userInformation, loading, error] =
-    useSignInWithGoogle(auth);
+  const [signInWithGoogle, userInformation] = useSignInWithGoogle(auth);
 
   const createUserProfile = async (user) => {
     const userInfo = {
